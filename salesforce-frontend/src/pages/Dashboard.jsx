@@ -330,7 +330,7 @@ export default function Dashboard() {
       {/* DEPLOY MODAL */}
       {deploying && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white rounded-3xl p-10 text-center shadow-2xl w-[350px]">
+          <div className="bg-white rounded-3xl p-10 text-center shadow-2xl w-87.5">
             <FaSpinner className="animate-spin text-5xl text-blue-600 mx-auto mb-5" />
 
             <h3 className="text-2xl font-bold text-slate-800 mb-2">

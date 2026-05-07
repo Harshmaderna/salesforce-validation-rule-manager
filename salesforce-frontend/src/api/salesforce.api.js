@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:8000/api/salesforce",
+  baseURL: `${import.meta.env.VITE_BACKEND_URL}/api/salesforce`,
 });
 
 // LOGIN
