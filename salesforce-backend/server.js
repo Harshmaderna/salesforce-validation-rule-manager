@@ -1,21 +1,21 @@
 import dotenv from "dotenv";
 import express from "express";
-import cookieParser from "cookie-parser";
 import cors from "cors"
+import cookieParser from "cookie-parser";
+
 import router from "./routes/route.js";
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 app.use(cors({
-  origin: [
-    "https://salesforce-validation-rule-managers.vercel.app"
+  origin: [ 
+    "http://localhost:5173" 
   ],
   credentials: true
 }))
-
-app.use(express.json()); 
 app.use(cookieParser());
+app.use(express.json()); 
 app.use("/api/salesforce", router);
 
 app.get("/", (req, res) => {

@@ -188,7 +188,7 @@ export default function Dashboard() {
       {/* USER INFO CARD */}
       {connected && user && (
         <div className="bg-white rounded-2xl shadow p-6 mb-6 border border-slate-200">
-          <h2 className="text-2xl font-bold text-slate-800">{user.username}</h2>
+          <h2 className="text-2xl font-bold text-slate-800">UserName: {user.username}</h2>
 
           <p className="text-slate-500 mt-1">
             Organization: {user.organization}
