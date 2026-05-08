@@ -6,7 +6,12 @@ import router from "./routes/route.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
-app.use(cors())
+app.use(cors({
+  origin: [
+    "https://salesforce-validation-rule-managers.vercel.app"
+  ],
+  credentials: true
+}))
 
 app.use(express.json()); 
 app.use("/api/salesforce", router);
