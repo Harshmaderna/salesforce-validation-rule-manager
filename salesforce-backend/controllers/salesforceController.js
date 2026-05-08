@@ -1,4 +1,5 @@
 import axios from "axios";
+import cookieParser from "cookie-parser";
 import {clearAuth, getAuth, setAuth} from "../config/salesforce.js";
 import {
   getValidationRule,
@@ -30,7 +31,20 @@ export const callback = async (req, res) => {
       },
     );
 
-    setAuth(response.data.access_token, response.data.instance_url);
+    res.cookie("sf_token", response.data.access_token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+
+    res.cookie("sf_instance", response.data.instance_url, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
+
+
+    // setAuth(response.data.access_token, response.data.instance_url);
     res.redirect(process.env.FRONTEND_URL);
   } catch (error) {
     console.log(error.response?.data || error.message);

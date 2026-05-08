@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import cookieParser from "cookie-parser";
 import cors from "cors"
 import router from "./routes/route.js";
 
@@ -14,6 +15,7 @@ app.use(cors({
 }))
 
 app.use(express.json()); 
+app.use(cookieParser());
 app.use("/api/salesforce", router);
 
 app.get("/", (req, res) => {
